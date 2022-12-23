@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-login-2851e": {
+      "hosting": {
+        "AngularLgn": [
+          "angular-login-2851e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-login-2851e"
+  }
+}
