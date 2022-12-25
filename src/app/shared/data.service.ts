@@ -24,10 +24,16 @@ export class DataService {
     deleteStudent(student : Student) {
      this.afs.doc('/Students/'+student.id).delete();
  }
+    studentUpdate(student : Student){
+      this.afs.doc('/Students/'+student.id).update(student);
+    }
+    
 
  // update student
     updateStudent(student : Student) {
       this.deleteStudent(student);
       this.addStudent(student);
+      this.studentUpdate(student);
+
   }
 }

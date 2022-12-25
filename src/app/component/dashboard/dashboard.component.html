@@ -19,7 +19,7 @@
                         <label for="email">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="mobile">
+                        <input type="text" class="form-control" id="mobile" name="mobile" maxlength="11"[(ngModel)]="mobile">
                         <label for="mobile">Mobile</label>
                     </div>
                     <button type="button" class="btn btn-outline-success" (click)="addStudent()">Add Student</button>
@@ -32,6 +32,7 @@
                     <table class="table table-hover">
                         <thead>
                           <tr>
+                            <th socpe="col">Id</th>
                             <th scope="col">First name</th>
                             <th scope="col">Last name</th>
                             <th scope="col">Email</th>
@@ -41,12 +42,14 @@
                         </thead>
                         <tbody>
                           <tr *ngFor="let student of studentList">
+                            <td >{{student.id}}</td>
                             <td >{{student.first_name}}</td>
                             <td>{{student.last_name}}</td>
                             <td>{{student.email}}</td>
                             <td>{{student.mobile}}</td>
                             <td>
                                 <button class="btn btn-outline-danger" (click)="deleteStudent(student)">Delete</button>
+                                <button class="btn btn-outline-danger" (click)="updateStudent()">Update</button>
                             </td>
                           </tr>
                         </tbody>

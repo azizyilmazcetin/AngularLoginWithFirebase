@@ -62,7 +62,7 @@ export class AuthService {
   // forgot password
   forgotPassword(email:string){
     this.fireauth.sendPasswordResetEmail(email).then(()=>{
-      this.router.navigate(['/verify-email']);
+      this.router.navigate(['/login']);
     }, err=>{
       alert('Something went wrong');
     })
@@ -86,5 +86,14 @@ export class AuthService {
       }, err =>{
         alert(err.message);
       })
+    }
+    facebookSignIn(){
+      return this.fireauth.signInWithPopup(new FacebookAuthProvider).then(res =>{
+        this.router.navigate(['/dashboard']);
+        localStorage.setItem('token',JSON.stringify(res.user?.uid));
+      }, err =>{
+        alert(err.message);
+      })
+
     }
 }

@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
     this.getAllStudents();
   }
  
-  
+  //adminin kayıt ettiği öğrencileri tabloya getiriyoruz
   getAllStudents(){
     this.data.getAllStudents().subscribe(res=>{
 
@@ -42,6 +42,7 @@ export class DashboardComponent implements OnInit {
       alert('Error while fetching student data.');
     })
   }
+   
     resetForm(){
       this.id = '';
       this.first_name = '';
@@ -49,13 +50,13 @@ export class DashboardComponent implements OnInit {
       this.email = '';
       this.mobile = '';
     }
-
+    //Admin tarafından cloud sisteme bağladığımız tabloya öğrenci ekleme
   addStudent(){
     if (this.first_name == '' || this.last_name == '' || this.mobile == '' || this.email == '') {
       alert('Fill all input fields');
       return;
     }
-    this.studentObj.id = '';
+    this.studentObj.id = this.id;
     this.studentObj.email = this.email;
     this.studentObj.first_name = this.first_name;
     this.studentObj.last_name = this.last_name;
@@ -63,10 +64,16 @@ export class DashboardComponent implements OnInit {
     this.data.addStudent(this.studentObj);
     this.resetForm();
     }
+
   updateStudent(){
-
+    this.studentObj.email = this.email;
+    this.studentObj.first_name = this.first_name;
+    this.studentObj.last_name = this.last_name;
+    this.studentObj.mobile = this.mobile;
+    this.data.studentUpdate(this.studentObj);
+    this.resetForm();
   }
-
+    //öğrenci silmek
   deleteStudent(student:Student){
       if(window.confirm('Are you sure you want to delete'+student.first_name+''+student.last_name+'?'))
       this.data.deleteStudent(student);
