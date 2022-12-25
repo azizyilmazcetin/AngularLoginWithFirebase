@@ -1,40 +1,56 @@
-<div class="container-fluid">
-    <div class="row mt-5">
-        <div class="col"></div>
-        <div class="col-4">
-            <div class="card shadow">
-                <div class="card-body" >
-                    <form>
-                        <div class="mb-3">
-                            <h4 class="text-dark text-muted"> Login </h4>
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email</label>
-                          <input type="email" class="form-control" name="email" [(ngModel)]="email">
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" name="password" [(ngModel)]="password">
-                        </div>
-                        <button type="button" class="btn btn-info"(click)="login()">Login</button>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="/register" style ="text-decoration: none; ">Need Account ? <span class="text-danger">Register</span></a>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="/forgot-password" class= "text-dark"style="text-decoration: none; ">Forgot Password</a>
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img.src= ../../../assets/icon8.google-48.png" alt=""></img.src>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<div class="text-center" style="padding:50px 0">
+	<div class="logo">login</div>
+	<!-- Main Form -->
+	<div class="login-form-1">
+		<form id="login-form" class="text-left">
+			<div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group">
+						<label for="lg_username" class="sr-only">Username</label>
+						<input type="email" class="form-control" id="lg_username" name="email" placeholder="username" [(ngModel)]="email" >
+					</div>
+					<div class="form-group">
+						<label for="lg_password" class="sr-only">Password</label>
+						<input type="password" class="form-control" id="lg_password" name="password" placeholder="password" [(ngModel)]="password">
+					</div>
+				</div>
+				<button type="submit" class="login-button" (click)="login()"><i class="fa fa-chevron-right"></i></button>
+			</div>
+			<div class="etc-login-form">
+				<p>forgot your password? <a href="/forgot-password">click here</a></p>
+				<p>new user? <a href="/register">create new account</a></p>
+			</div>
+			<div class="row mt-2">
+				<a (click)="signInWithGoogle()" style="text-decoration: none;cursor: pointer;">
+					<div class="card shadow text-center">
+						<div class="card-body">
+							<img src="../../../assets/icons8-google-48.png" alt="" height="24px" width="24px"> Sign In with Google
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="row mt-2">
+				<a (click)="signInWithFacebook()" style="text-decoration: none;cursor: pointer;">
+					<div class="card shadow text-center">
+						<div class="card-body">
+							<img src="../../../assets/facebook-icon.png" alt="" height="24px" width="24px"> Sign In with Facebook
+						</div>
+					</div>
+				</a>
+			</div>
+		</form>
+		
+	</div>
+	<!-- end:Main Form -->
 </div>
+
